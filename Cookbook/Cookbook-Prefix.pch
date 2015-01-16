@@ -1,0 +1,55 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+//1.日志开关
+#ifdef DEBUG
+#define ILLog(...) NSLog(__VA_ARGS__)
+#else
+#define ILLog(...)
+#endif
+//屏幕的宽度
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+//屏幕的高度
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+//取色
+#define kGetColor(r,g,b,a) [UIColor colorWithRed:r green:g blue:b alpha:a]
+//屏幕的尺寸
+#define kScreenFrame [UIScreen mainScreen].applicationFrame
+//控制器背景色
+#define kAllBgColor kGetColor(0.9451, 0.9451, 0.9451, 1)
+//底部工具条
+#define kTabBarHeight 50
+//分割线图片
+#define kLineImage [UIImage imageNamed:@"line.png"]
+
+#define kLoadImage [UIImage imageNamed:@"page_image_loading.png"]
+
+//工具类
+#import "UIUtils.h"
+//需要添加的分类
+#import "NSString+CBString.h"
+#import "MBProgressHUD+Show.h"
+
+#define kLatelySearchKey @"latelySearch"
+
+//第三方框架库
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
+
+#endif
